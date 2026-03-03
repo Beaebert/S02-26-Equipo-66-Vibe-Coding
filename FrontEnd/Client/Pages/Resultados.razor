@@ -1,64 +1,105 @@
 @page "/resultados"
+@using System.Net.Http.Json
 @inject NavigationManager NavManager
+@inject HttpClient Http
 
 <RadzenStack AlignItems="AlignItems.Center" Class="rz-my-4">
-    <div style="background-color: #dcfce7; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+    <div
+        style="background-color: #dcfce7; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
         <RadzenIcon Icon="emoji_events" Style="font-size: 3rem; color: #10b981;" />
     </div>
-    
-    <RadzenText Text="Simulación Completada" TextStyle="TextStyle.H3" Style="font-weight: 800; color: #1e293b; margin: 0;" />
+
+    <RadzenText Text="Simulación Completada" TextStyle="TextStyle.H3"
+        Style="font-weight: 800; color: #1e293b; margin: 0;" />
     <RadzenText Text="Sutura Renal - Nivel Básico" TextStyle="TextStyle.Subtitle1" Style="color: #64748b;" />
 </RadzenStack>
 
 <RadzenRow Gap="2rem" Class="rz-mt-4">
     <RadzenColumn Size="12" SizeMD="4">
-        <RadzenCard Style="text-align: center; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+        <RadzenCard
+            Style="text-align: center; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); height: 100%; display: flex; flex-direction: column; justify-content: center;">
             <RadzenText Text="Precisión Global" TextStyle="TextStyle.H6" Style="color: #64748b;" />
-            <RadzenText Text="92%" TextStyle="TextStyle.DisplayH2" Style="font-weight: 900; color: #3b82f6; margin: 10px 0;" />
-            <RadzenBadge Text="Nivel: Excelente" BadgeStyle="BadgeStyle.Success" Style="font-size: 1rem; padding: 8px 16px; border-radius: 20px; align-self: center;" />
+            <RadzenText Text="@($"{PrecisionGlobal}%")" TextStyle="TextStyle.DisplayH2"
+                Style="font-weight: 900; color: #3b82f6; margin: 10px 0;" />
+
+            @if (ColorPrecision == "Success")
+            {
+                <RadzenBadge Text="@($"Nivel: {NivelPrecision}")" BadgeStyle="BadgeStyle.Success"
+                    Style="font-size: 1rem; padding: 8px 16px; border-radius: 20px; align-self: center;" />
+            }
+            @if (ColorPrecision == "Warning")
+            {
+                <RadzenBadge Text="@($"Nivel: {NivelPrecision}")" BadgeStyle="BadgeStyle.Warning"
+                    Style="font-size: 1rem; padding: 8px 16px; border-radius: 20px; align-self: center;" />
+            }
+            @if (ColorPrecision == "Danger")
+            {
+                <RadzenBadge Text="@($"Nivel: {NivelPrecision}")" BadgeStyle="BadgeStyle.Danger"
+                    Style="font-size: 1rem; padding: 8px 16px; border-radius: 20px; align-self: center;" />
+            }
         </RadzenCard>
     </RadzenColumn>
 
     <RadzenColumn Size="12" SizeMD="8">
-        <RadzenCard Style="padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
-            <RadzenText Text="Análisis de Rendimiento" TextStyle="TextStyle.H6" Style="font-weight: 700; color: #1e293b; margin-bottom: 1.5rem;" />
-
-            <RadzenStack Class="rz-mb-3">
-                <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween">
-                    <RadzenText Text="Control de Tensión de Sutura" TextStyle="TextStyle.Body1" Style="font-weight: 600;" />
-                    <RadzenText Text="95%" TextStyle="TextStyle.Body1" Style="color: #10b981; font-weight: bold;" />
-                </RadzenStack>
-                <RadzenProgressBar Value="95" ShowValue="false" Style="height: 10px; border-radius: 5px;" />
+        <RadzenCard Style="border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); height: 100%;">
+            <RadzenText Text="Métricas de Sesión" TextStyle="TextStyle.H6"
+                Style="font-weight: bold; margin-bottom: 20px; color: #1e293b;" />
+            <RadzenStack Gap="1.5rem">
+                <div>
+                    <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween"
+                        Class="rz-mb-1">
+                        <RadzenText Text="Economía de Movimiento" TextStyle="TextStyle.Subtitle2"
+                            Style="font-weight: 600; color: #475569;" />
+                        <RadzenText Text="@($"{Result.TotalDistance.ToString("0.0")} px")"
+                            TextStyle="TextStyle.Subtitle2" Style="font-weight: bold; color: #1e293b;" />
+                    </RadzenStack>
+                    <RadzenProgressBar Value="100" ShowValue="false" Style="height: 8px; border-radius: 4px;"
+                        Mode="ProgressBarMode.Determinate" />
+                </div>
+                <div>
+                    <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween"
+                        Class="rz-mb-1">
+                        <RadzenText Text="Errores de Ejecución" TextStyle="TextStyle.Subtitle2"
+                            Style="font-weight: 600; color: #475569;" />
+                        <RadzenText Text="@Result.FailedClicks.ToString()" TextStyle="TextStyle.Subtitle2"
+                            Style="font-weight: bold; color: #1e293b;" />
+                    </RadzenStack>
+                    <RadzenProgressBar Value="@(Math.Min(Result.FailedClicks * 10, 100))" ShowValue="false"
+                        Style="height: 8px; border-radius: 4px;" />
+                </div>
+                <div>
+                    <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween"
+                        Class="rz-mb-1">
+                        <RadzenText Text="Desempeño Visual" TextStyle="TextStyle.Subtitle2"
+                            Style="font-weight: 600; color: #475569;" />
+                        <RadzenText Text="@($"{Result.DangersCount + Result.WarningsCount} Colisiones")"
+                            TextStyle="TextStyle.Subtitle2" Style="font-weight: bold; color: #1e293b;" />
+                    </RadzenStack>
+                    <RadzenProgressBar Value="@(Math.Min((Result.DangersCount + Result.WarningsCount) * 10, 100))"
+                        ShowValue="false" Style="height: 8px; border-radius: 4px; background-color: #ef4444;" />
+                </div>
             </RadzenStack>
 
-            <RadzenStack Class="rz-mb-3">
-                <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween">
-                    <RadzenText Text="Tiempo en Zona Segura" TextStyle="TextStyle.Body1" Style="font-weight: 600;" />
-                    <RadzenText Text="88%" TextStyle="TextStyle.Body1" Style="color: #3b82f6; font-weight: bold;" />
-                </RadzenStack>
-                <RadzenProgressBar Value="88" ShowValue="false" Style="height: 10px; border-radius: 5px;" />
-            </RadzenStack>
-
-            <RadzenStack Class="rz-mb-4">
-                <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.SpaceBetween">
-                    <RadzenText Text="Economía de Movimiento" TextStyle="TextStyle.Body1" Style="font-weight: 600;" />
-                    <RadzenText Text="76%" TextStyle="TextStyle.Body1" Style="color: #f59e0b; font-weight: bold;" />
-                </RadzenStack>
-                <RadzenProgressBar Value="76" ShowValue="false" ProgressBarStyle="ProgressBarStyle.Warning" Style="height: 10px; border-radius: 5px;" />
-            </RadzenStack>
-
-            <RadzenRow Gap="1rem" Style="background-color: #f8fafc; padding: 15px; border-radius: 12px;">
+            <RadzenRow Gap="1rem"
+                Style="background-color: #f8fafc; padding: 15px; border-radius: 12px; margin-top: 15px;">
                 <RadzenColumn Size="4" Style="text-align: center;">
-                    <RadzenText Text="Tiempo Total" TextStyle="TextStyle.Caption" Style="color: #64748b; display: block;" />
-                    <RadzenText Text="14:23" TextStyle="TextStyle.Subtitle1" Style="font-weight: bold; color: #1e293b;" />
+                    <RadzenText Text="Tiempo Total" TextStyle="TextStyle.Caption"
+                        Style="color: #64748b; display: block;" />
+                    <RadzenText Text="@($"{Result.TotalDurationSeconds / 60:D2}:{Result.TotalDurationSeconds % 60:D2}")"
+                        TextStyle="TextStyle.Subtitle2" Style="font-weight: bold; color: #1e293b;" />
                 </RadzenColumn>
-                <RadzenColumn Size="4" Style="text-align: center; border-left: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0;">
-                    <RadzenText Text="Colisiones" TextStyle="TextStyle.Caption" Style="color: #64748b; display: block;" />
-                    <RadzenText Text="2" TextStyle="TextStyle.Subtitle1" Style="font-weight: bold; color: #ef4444;" />
+                <RadzenColumn Size="4"
+                    Style="text-align: center; border-left: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0;">
+                    <RadzenText Text="Alertas / Críticos" TextStyle="TextStyle.Caption"
+                        Style="color: #64748b; display: block;" />
+                    <RadzenText Text="@($"{Result.WarningsCount} / {Result.DangersCount}")"
+                        TextStyle="TextStyle.Subtitle1" Style="font-weight: bold; color: #ef4444;" />
                 </RadzenColumn>
                 <RadzenColumn Size="4" Style="text-align: center;">
-                    <RadzenText Text="Puntaje UX" TextStyle="TextStyle.Caption" Style="color: #64748b; display: block;" />
-                    <RadzenText Text="A" TextStyle="TextStyle.Subtitle1" Style="font-weight: bold; color: #10b981;" />
+                    <RadzenText Text="Profesional" TextStyle="TextStyle.Caption"
+                        Style="color: #64748b; display: block;" />
+                    <RadzenText Text="@Result.DoctorName" TextStyle="TextStyle.Subtitle2"
+                        Style="font-weight: bold; color: #10b981;" />
                 </RadzenColumn>
             </RadzenRow>
         </RadzenCard>
@@ -66,12 +107,62 @@
 </RadzenRow>
 
 <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Center" Gap="1rem" Class="rz-mt-5">
-    <RadzenButton Text="Volver al Dashboard" ButtonStyle="ButtonStyle.Light" Style="padding: 10px 30px; border-radius: 8px; font-weight: 600;" Click="@(() => NavManager.NavigateTo("/"))" />
-    <RadzenButton Text="Reintentar Simulación" ButtonStyle="ButtonStyle.Primary" Style="padding: 10px 30px; border-radius: 8px; font-weight: 600;" Click="@(() => NavManager.NavigateTo("/simulador"))" />
+    <RadzenButton Text="Volver al Dashboard" ButtonStyle="ButtonStyle.Light"
+        Style="padding: 10px 30px; border-radius: 8px; font-weight: 600;" Click="@(() => NavManager.NavigateTo("/"))" />
+    <RadzenButton Text="Reintentar Simulación" ButtonStyle="ButtonStyle.Primary"
+        Style="padding: 10px 30px; border-radius: 8px; font-weight: 600;"
+        Click="@(() => NavManager.NavigateTo("/simulador"))" />
 </RadzenStack>
 
 @code {
-    // Aquí es donde en el futuro (cuando integremos 100% el backend)
-    // recibiremos las variables reales de la simulación recién terminada.
-    // Por ahora, usamos datos duros para el MVP visual.
+    public class SimulationResult
+    {
+        public int WarningsCount { get; set; }
+        public int DangersCount { get; set; }
+        public string DoctorName { get; set; }
+        public DateTime SessionDate { get; set; }
+        public double TotalDistance { get; set; }
+        public int FailedClicks { get; set; }
+        public int TotalDurationSeconds { get; set; }
+    }
+
+    SimulationResult Result = new SimulationResult();
+    int PrecisionGlobal = 100;
+    string NivelPrecision = "Excelente";
+    string ColorPrecision = "Success"; // Radzen BadgeStyle string mapped
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            Result = await Http.GetFromJsonAsync<SimulationResult>("https://localhost:7231/api/pointer/results");
+
+            // The API records a hit every 100ms. High counts are expected for hovering.
+            // We cap the maximum penalty to avoid instant 0% scores on minor infractions.
+            int colisionesVisuales = Result.WarningsCount + Result.DangersCount;
+            int penalizacionHover = Math.Min(colisionesVisuales / 5, 40); // 1 point lost every 0.5s of danger, max 40% loss
+            int penalizacionManejo = Math.Min(Result.FailedClicks * 10, 60); // 10% lost per bad click, max 60% loss
+            
+            PrecisionGlobal = 100 - penalizacionHover - penalizacionManejo;
+            
+            if (PrecisionGlobal < 0) PrecisionGlobal = 0;
+
+            if (PrecisionGlobal >= 90)
+            {
+                NivelPrecision = "Excelente";
+                ColorPrecision = "Success";
+            }
+            else if (PrecisionGlobal >= 70)
+            {
+                NivelPrecision = "Aceptable";
+                ColorPrecision = "Warning";
+            }
+            else
+            {
+                NivelPrecision = "Crítico";
+                ColorPrecision = "Danger";
+            }
+        }
+        catch { }
+    }
 }

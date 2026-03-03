@@ -16,7 +16,7 @@ public class ClickHandler
 
     public async Task<SafetyStatus> HandleAsync(ClickCommand command)
     {
-        var robot = await _repository.GetRobotAsync();
+        var robot = await _repository.GetLatestSessionAsync();
 
         // Ensure robot is at the click location (optional, but good for consistency)
         var target = new Coordinate(command.X, command.Y, command.Z);

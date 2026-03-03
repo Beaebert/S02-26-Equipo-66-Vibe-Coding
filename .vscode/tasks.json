@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "build-api",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -12,6 +12,26 @@
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build-blazor",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/FrontEnd/Server/JustinaSimulation.Server.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build-all",
+            "dependsOn": [
+                "build-api",
+                "build-blazor"
+            ],
+            "problemMatcher": []
         }
     ]
 }

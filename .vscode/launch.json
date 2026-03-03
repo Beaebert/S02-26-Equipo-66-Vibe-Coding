@@ -1,11 +1,20 @@
 {
     "version": "0.2.0",
+    "compounds": [
+        {
+            "name": "Launch Justina Simulador Completo",
+            "configurations": [
+                ".NET Core Launch (API)",
+                ".NET Core Launch (Blazor Frontend)"
+            ]
+        }
+    ],
     "configurations": [
         {
             "name": ".NET Core Launch (API)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "build-api",
             "program": "${workspaceFolder}/JustinaSimulator.API/bin/Debug/net10.0/JustinaSimulator.API.dll",
             "args": [],
             "cwd": "${workspaceFolder}/JustinaSimulator.API",
@@ -16,10 +25,27 @@
                 "uriFormat": "%s/swagger/index.html"
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "https://localhost:7231;http://localhost:5195"
+            }
+        },
+        {
+            "name": ".NET Core Launch (Blazor Frontend)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-blazor",
+            "program": "${workspaceFolder}/FrontEnd/Server/bin/Debug/net10.0/JustinaSimulation.Server.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/FrontEnd/Server",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s"
             },
-            "sourceFileMap": {
-                "/Views": "${workspaceFolder}/Views"
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "https://localhost:5001;http://localhost:5000"
             }
         }
     ]

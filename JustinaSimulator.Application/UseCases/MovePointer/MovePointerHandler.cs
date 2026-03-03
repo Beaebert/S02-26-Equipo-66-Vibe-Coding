@@ -16,7 +16,7 @@ public class MovePointerHandler
     public async Task HandleAsync(MovePointerCommand command)
     {
         // 1. Get current state
-        var robot = await _repository.GetRobotAsync();
+        var robot = await _repository.GetLatestSessionAsync();
 
         // 2. Create new target coordinate
         var newTarget = new Coordinate(command.X, command.Y, command.Z);

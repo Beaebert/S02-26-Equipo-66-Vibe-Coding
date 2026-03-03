@@ -10,8 +10,14 @@ public class InMemorySimulationRepository : ISimulationStateRepository
     // Simple singleton-like behavior for the simulation state
     private static Robot _currentRobot = new Robot(Guid.NewGuid());
 
-    public Task<Robot> GetRobotAsync()
+    public Task<Robot> GetLatestSessionAsync()
     {
+        return Task.FromResult(_currentRobot);
+    }
+
+    public Task<Robot> CreateNewSessionAsync(string doctorName)
+    {
+        _currentRobot = new Robot(Guid.NewGuid(), doctorName);
         return Task.FromResult(_currentRobot);
     }
 

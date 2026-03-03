@@ -1,6 +1,7 @@
 using JustinaSimulator.Application.Interfaces;
 using JustinaSimulator.Application.UseCases.MovePointer;
 using JustinaSimulator.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +16,11 @@ builder.Services.AddScoped<MovePointerHandler>();
 builder.Services.AddScoped<JustinaSimulator.Application.UseCases.Click.ClickHandler>();
 
 // Infrastructure Services
-builder.Services.AddSingleton<ISimulationStateRepository, InMemorySimulationRepository>();
+builder.Services.AddDbContext<JustinaDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=JustinaSimulator.db",
+    b => b.MigrationsAssembly("JustinaSimulator.API")));
+
+builder.Services.AddScoped<ISimulationStateRepository, SqliteSimulationRepository>();
 
 // Add CORS
 builder.Services.AddCors(options =>

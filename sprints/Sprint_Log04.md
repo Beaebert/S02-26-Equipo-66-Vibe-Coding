@@ -2,7 +2,7 @@
 
 **Fecha Inicio del Sprint:** Lunes 23/02/2026
 **Fecha Cierre del Sprint:** Viernes 27/02/2026
-**Estado:** 🚧 En Progreso
+**Estado:** ✅ Finalizado
 **Scrum Master (Acting):** Analista Programadora C# [Beatriz Ebert Desarrolladora .NET ](https://github.com/Beaebert)
 
 ## 🎯 Objetivo del Sprint
@@ -18,13 +18,35 @@ Comenzar la preparación de la presentación final y material audiovisual del si
 * **Resultados:**
     * Definición de la estructura de la presentación.
 
+### Martes 24/02 - Organización de Presentación Final
+* **Actividad:**
+    * Se continuo desarrollando la presentación Slides y se subio la documentación realizada a la plataforma No Country.
+
 ### Miércoles 25/02 - Situación del Equipo y Avances Técnicos
 * **Actividad:**
     * Se evalúa el avance técnico y la velocidad del equipo. Como somos únicamente tres personas (Lara Almirón, Cristian Dal Piva como diseñadores y Beatriz Ebert como desarrolladora), el avance del proyecto va lento.
-    * **Desarrollo (Vibe Coding):** Beatriz Ebert (stack .NET) es la única responsable del código. Debido a que continúa cursando y prestando atención a sus estudios universitarios, está bastante limitada de tiempo y se ha atrasado frente a los tiempos ideales.
+    * **Desarrollo (Vibe Coding):** Beatriz Ebert (stack .NET) es la única responsable del código. Debido a que continúa cursando estudios universitarios, está bastante limitada de tiempo y se ha atrasado frente a los tiempos ideales.
     * A pesar de las demoras, Beatriz continúa desarrollando el simulador integrando la API en C# y la interfaz visual en Radzen Blazor.
 
-## 📊 Retrospectiva del Sprint 04 (Estimada)
+### Jueves 26/02 - Organización de Presentación Final y Persistencia de Datos
+* **Actividad:**
+    * Se finalizó el desarrollo del Front End en Radzen Blazor Studio y se unificaron sus archivos a la carpeta del proyecto.
+    * Se subió al repositorio de GitHub el código de la parte Front End.
+    * Se continuó con la preparación de la presentación Slides.
+    * **Desarrollo Backend/Frontend:** Integración exitosa de Base de Datos local usando **Entity Framework Core con SQLite**.
+    * Se configuró el ciclo de vida de **Sesiones (Session IDs)** en la Base de Datos para que cada ejecución de simulación genere reportes independientes (guardando Fecha, Doctor, Cantidad de Advertencias y Peligros Clínicos).
+    * Se logró un mapeo " pixel-perfect" entre las zonas seguras visuales establecidas por los diseñadores en el Front End y las matemáticas cartesianas de la API de C# para eliminar la latencia visual.
+    * La pantalla final de Resultados ahora es **100% dinámica**, consumiendo la base de datos (EndPoints GET) para calcular estadísticamente la "Precisión Global" y entregar insignias de UX en base a las penalizaciones de la sesión finalizada.
+
+### Viernes 27/02 - Organización de Presentación Final y Persistencia de Datos
+* **Actividad:**
+    * **Continuidad Técnica:** Se continuó y profundizó el arduo trabajo iniciado el día Jueves respecto a la integración Backend-Frontend.
+    * Se realizaron ajustes finos en el cálculo de "Precisión Global" y las métricas de penalización de la interfaz en base a las pruebas de lectura/escritura de la base de datos **SQLite**.
+    * Se evaluó el mapeo en tiempo real de las coordenadas X/Y para el control de la zona segura.
+    * **Presentación y Demo:** Se coordinaron los planes a seguir para la exposición, incluyendo la búsqueda de herramientas apropiadas para la grabación del video demostrativo.
+    * Continuación del desarrollo de los contenidos teóricos en las Google Slides.
+
+## 📊 Retrospectiva del Sprint 04
 
 ### 👍 Lo que hicimos bien (Start doing)
 * Enfocarnos en tener la presentación preparada a tiempo para la reunión final.

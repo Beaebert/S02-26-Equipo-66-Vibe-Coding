@@ -9,7 +9,11 @@ Desarrollar una plataforma digital de simulación que permita a los cirujanos en
 **Objetivos de esta plataforma:**
 - Que el Operador Humano pueda simular el control del brazo robótico (efector final/pinza) mediante periféricos estándar (mouse/puntero).
 - Que el Operador Humano pueda interactuar con una interfaz de usuario (UX) realista, familiarizándose con el entorno de una consola quirúrgica en un ambiente seguro.
-- Recopilar métricas en tiempo real para conocimiento y posterior evaluación de desempeño de la sesión (precisión, tiempos, colisiones).
+- Recopilar métricas en tiempo real para conocimiento y posterior evaluación de desempeño de la sesión. Actualmente registrando:
+  - **Precisión Geométrica:** Cálculos cartesianos de colisiones visuales (Advertencias y Peligros Clínicos).
+  - **Economía de Movimiento:** Tracking del desplazamiento total en píxeles del brazo robótico.
+  - **Errores de Ejecución:** Registro de intentos fallidos (clicks en zonas no permitidas).
+  - **Tiempo por Sesión:** Segundos transcurridos desde el inicio al fin del procedimiento.
 - Corroborar la viabilidad lógica del sistema para, en el futuro, acoplar este "cerebro" a un robot de hardware real.
 
 ### 🛠️ Resumen de Herramientas (Stack Tecnológico)
@@ -24,7 +28,7 @@ Para la construcción ágil del MVP (*Vibe Coding*), nos alineamos con el catál
     * **Antigravity IDE** (Desarrollo de la lógica espacial y redacción de la documentación nativa en Markdown).
 * **Base de Datos:** 
     * **SQLite** + **Entity Framework Core**. 
-  > 💡 *Nota: Se eligió SQLite por su agilidad (zero-config) para la fase MVP. Al usar EF Core, la migración a **SQL Server** en futuras etapas de producción será transparente y solo requerirá cambiar la cadena de conexión.*
+  > 💡 *Nota: Se eligió SQLite por su agilidad (zero-config) para la fase MVP. Al usar EF Core, la migración a sistemas altamente escalables y robustos para historiales clínicos reales (como **SQL Server** o **PostgreSQL**) en futuras etapas de producción será transparente y solo requerirá cambiar un string de conexión en la API, respetando la estructura de métricas relacionales.*
 * **Gestión y Colaboración:** 
     * **Markdown** (Versionado en Git) y 
     * **Notion** (Proyectado para la gestión del conocimiento del equipo multidisciplinario).
@@ -44,10 +48,10 @@ Para garantizar la entrega del MVP en los tiempos establecidos y unificar el len
 Para el desarrollo del MVP, el equipo ha optado por una **Arquitectura Desacoplada** basada en API REST y separación en capas. Esta decisión estratégica garantiza la escalabilidad del simulador a largo plazo:
 
 1. **El Motor Lógico (Backend API):** Contiene el "Cerebro" del simulador. Al ser una API REST independiente, el núcleo lógico queda completamente agnóstico al hardware o a la pantalla que lo consuma.
-2. **La Consola de Usuario (Frontend Blazor):** Actúa como el cliente actual que consume los datos de la API para renderizar la experiencia visual.
+2. **La Consola de Usuario (Frontend Blazor):** Actúa como el cliente actual que consume los datos de la API para renderizar la experiencia visual. **A pesar de estar construida con la misma tecnología base (.NET/C#) que el Backend, es una capa estrictamente separada e independiente.**
 
 **🚀 Preparación para el Futuro:**
-Esta estructura de capas garantiza que las funcionalidades sean independientes. Si en el futuro los stakeholders solicitan cambiar la tecnología del Frontend (ej. a React, Vue, o motores 3D como Unity) o conectar el sistema a una Base de Datos en la nube para telemetría compleja, **el núcleo Backend permanecerá intacto**. Solo será necesario conectar los nuevos clientes a los endpoints de la API existente.
+Esta estricta separación de capas garantiza que las funcionalidades sean independientes. Si en el futuro los stakeholders solicitan cambiar la tecnología del Frontend (ej. a React, Vue, Flutter, o motores 3D como Unity) o conectar el sistema a una Base de Datos en la nube para telemetría compleja, **el núcleo Backend permanecerá intacto**. Solo será necesario desechar la capa visual actual y conectar los nuevos clientes a los endpoints de la API existente.
 
 ### 🧑‍⚕️ User Story: Actor Cirujano 
 Se considera como principal usuario directo del simulador al médico cirujano que en el futuro se encontrará en la situación de operar el brazo robot a través de la interfaz.

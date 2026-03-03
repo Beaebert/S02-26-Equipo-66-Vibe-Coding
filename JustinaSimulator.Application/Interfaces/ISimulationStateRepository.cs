@@ -5,6 +5,7 @@ namespace JustinaSimulator.Application.Interfaces;
 
 public interface ISimulationStateRepository
 {
-    Task<Robot> GetRobotAsync();
+    Task<Robot> GetLatestSessionAsync();
+    Task<Robot> CreateNewSessionAsync(string doctorName);
     Task UpdateRobotAsync(Robot robot);
 }

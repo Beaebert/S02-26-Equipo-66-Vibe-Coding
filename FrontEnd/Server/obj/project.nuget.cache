@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GgicDfnn604=",
+  "dgSpecHash": "ogCC1N0lAco=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ebert\\Documents\\JustinaSimulation\\Server\\JustinaSimulation.Server.csproj",
+  "projectFilePath": "C:\\Users\\ebert\\Documents\\Proyecto Justina Simulador\\FrontEnd\\Server\\JustinaSimulation.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ebert\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.3\\microsoft.aspnetcore.app.internal.assets.10.0.3.nupkg.sha512",
     "C:\\Users\\ebert\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\10.0.3\\microsoft.aspnetcore.components.webassembly.10.0.3.nupkg.sha512",

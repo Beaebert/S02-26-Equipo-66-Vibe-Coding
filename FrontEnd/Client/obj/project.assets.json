@@ -2266,11 +2266,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ebert\\Documents\\JustinaSimulation\\Client\\JustinaSimulation.Client.csproj",
+      "projectUniqueName": "C:\\Users\\ebert\\Documents\\Proyecto Justina Simulador\\FrontEnd\\Client\\JustinaSimulation.Client.csproj",
       "projectName": "JustinaSimulation.Client",
-      "projectPath": "C:\\Users\\ebert\\Documents\\JustinaSimulation\\Client\\JustinaSimulation.Client.csproj",
+      "projectPath": "C:\\Users\\ebert\\Documents\\Proyecto Justina Simulador\\FrontEnd\\Client\\JustinaSimulation.Client.csproj",
       "packagesPath": "C:\\Users\\ebert\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ebert\\Documents\\JustinaSimulation\\Client\\obj\\",
+      "outputPath": "C:\\Users\\ebert\\Documents\\Proyecto Justina Simulador\\FrontEnd\\Client\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

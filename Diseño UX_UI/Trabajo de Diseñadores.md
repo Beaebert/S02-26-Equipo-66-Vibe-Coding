@@ -2,8 +2,8 @@
 ## El objetivo es crear una interfaz de usuario para el simulador de cirugía renal mínimamente invasiva.
 
 ## Diseñadores: 
-* **Cristian Dal Piva**
-* **Lara Almiron**
+* **Cristian Dal Piva** [Cristian Dal Piva](https://github.com/cristiandalpiva)
+* **Lara Almiron** [Lara Almiron](https://github.com/laraalmiron)
 
 ### Descripción del proceso de diseño:
 * Los diseñadores se reunieron activamente durante los Sprints con el Analista Programador, Desarrolladores Vibe Coding y No Code para comprender los objetivos de los requerimientos y las posibilidades técnicas. 

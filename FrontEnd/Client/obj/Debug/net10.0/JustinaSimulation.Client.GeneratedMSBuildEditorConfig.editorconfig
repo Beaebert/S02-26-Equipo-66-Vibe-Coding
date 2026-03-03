@@ -17,53 +17,53 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = JustinaSimulation.Client
 build_property.RootNamespace = JustinaSimulation.Client
-build_property.ProjectDir = C:\Users\ebert\Documents\JustinaSimulation\Client\
+build_property.ProjectDir = C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\ebert\Documents\JustinaSimulation\Client
+build_property.MSBuildProjectDirectory = C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/ebert/Documents/JustinaSimulation/Client/Layout/MainLayout.razor]
+[C:/Users/ebert/Documents/Proyecto Justina Simulador/FrontEnd/Client/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ebert/Documents/JustinaSimulation/Client/Layout/NotFoundLayout.razor]
+[C:/Users/ebert/Documents/Proyecto Justina Simulador/FrontEnd/Client/Layout/NotFoundLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5vdEZvdW5kTGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ebert/Documents/JustinaSimulation/Client/Pages/Index.razor]
+[C:/Users/ebert/Documents/Proyecto Justina Simulador/FrontEnd/Client/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ebert/Documents/JustinaSimulation/Client/Pages/NotFound.razor]
+[C:/Users/ebert/Documents/Proyecto Justina Simulador/FrontEnd/Client/Pages/NotFound.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90Rm91bmQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ebert/Documents/JustinaSimulation/Client/Pages/Perfil.razor]
+[C:/Users/ebert/Documents/Proyecto Justina Simulador/FrontEnd/Client/Pages/Perfil.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVyZmlsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ebert/Documents/JustinaSimulation/Client/Pages/Resultados.razor]
+[C:/Users/ebert/Documents/Proyecto Justina Simulador/FrontEnd/Client/Pages/Resultados.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzdWx0YWRvcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ebert/Documents/JustinaSimulation/Client/Pages/Seleccion.razor]
+[C:/Users/ebert/Documents/Proyecto Justina Simulador/FrontEnd/Client/Pages/Seleccion.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VsZWNjaW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ebert/Documents/JustinaSimulation/Client/Pages/Simulador.razor]
+[C:/Users/ebert/Documents/Proyecto Justina Simulador/FrontEnd/Client/Pages/Simulador.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2ltdWxhZG9yLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ebert/Documents/JustinaSimulation/Client/Routes.razor]
+[C:/Users/ebert/Documents/Proyecto Justina Simulador/FrontEnd/Client/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Um91dGVzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ebert/Documents/JustinaSimulation/Client/_Imports.razor]
+[C:/Users/ebert/Documents/Proyecto Justina Simulador/FrontEnd/Client/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
