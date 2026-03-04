@@ -28,8 +28,8 @@
         <RadzenCard Style="padding: 15px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.02);">
             <RadzenText Text="Sistema" TextStyle="TextStyle.Caption" Style="color: #94a3b8;" />
             <RadzenStack Orientation="Orientation.Horizontal" Gap="5px" AlignItems="AlignItems.Center">
-                <RadzenIcon Icon="@(simulacionActiva ? "play_circle" : "pause_circle")" Style="@($"color: {(simulacionActiva ? "#10b981" : "#3b82f6")};")" />
-                <RadzenText Text="@(simulacionActiva ? "Activo" : "En Espera")" TextStyle="TextStyle.H6" Style="@($"font-weight: bold; margin: 0; color: {(simulacionActiva ? "#10b981" : "#3b82f6")};")" />
+                <RadzenIcon Icon="@(simulacionActiva ? (trackingPausado ? "pause_circle" : "play_circle") : "stop_circle")" Style="@($"color: {(simulacionActiva ? (trackingPausado ? "#f59e0b" : "#10b981") : "#3b82f6")};")" />
+                <RadzenText Text="@(simulacionActiva ? (trackingPausado ? "Pausado" : "Activo") : "En Espera")" TextStyle="TextStyle.H6" Style="@($"font-weight: bold; margin: 0; color: {(simulacionActiva ? (trackingPausado ? "#f59e0b" : "#10b981") : "#3b82f6")};")" />
             </RadzenStack>
         </RadzenCard>
     </RadzenColumn>
@@ -38,40 +38,51 @@
 <RadzenRow Gap="1.5rem">
     <RadzenColumn Size="12" SizeMD="8">
 
-        <div style="background-color: #0f172a; border-radius: 12px; width: 800px; height: 500px; margin: 0 auto; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 30px rgba(0,0,0,0.8); border: 2px solid @colorBordeCanvas; cursor: @(simulacionActiva ? "none" : "default");"
+        <div style="background-color: #0f172a; border-radius: 12px; width: 800px; height: 500px; margin: 0 auto; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 30px rgba(0,0,0,0.8); border: 2px solid @colorBordeCanvas; cursor: @(simulacionActiva && !trackingPausado ? "none" : "default");"
              @onmousemove="MoverCursor" 
-             @onclick="AvanzarPaso">
+             @onclick="AvanzarPaso"
+             @oncontextmenu="AlternarPausa"
+             @oncontextmenu:preventDefault="true">
 
             @if (!simulacionActiva)
             {
-                    <RadzenStack AlignItems="AlignItems.Center" Gap="20px">
-                        <RadzenIcon Icon="medical_services" Style="font-size: 5rem; color: #38bdf8;" />
-                        <RadzenText Text="Campo Quirúrgico Listo" TextStyle="TextStyle.H5" Style="color: white; font-weight: 600;" />
-                        <RadzenText Text="Ubique el puntero en esta área y presione iniciar." TextStyle="TextStyle.Body2" Style="color: #94a3b8;" />
-                        <RadzenButton Text="Iniciar Procedimiento" ButtonStyle="ButtonStyle.Success" Style="padding: 12px 35px; font-size: 1.1rem; border-radius: 8px; font-weight: bold; margin-top: 10px;" Click="IniciarSimulacion" />
-                    </RadzenStack>
+                        <RadzenStack AlignItems="AlignItems.Center" Gap="20px">
+                            <RadzenIcon Icon="medical_services" Style="font-size: 5rem; color: #38bdf8;" />
+                            <RadzenText Text="Campo Quirúrgico Listo" TextStyle="TextStyle.H5" Style="color: white; font-weight: 600;" />
+                            <RadzenText Text="Ubique el puntero en esta área y presione iniciar." TextStyle="TextStyle.Body2" Style="color: #94a3b8;" />
+                            <RadzenButton Text="Iniciar Procedimiento" ButtonStyle="ButtonStyle.Success" Style="padding: 12px 35px; font-size: 1.1rem; border-radius: 8px; font-weight: bold; margin-top: 10px;" Click="IniciarSimulacion" />
+                        </RadzenStack>
             }
             else
             {
-                    <div style="position: absolute; top: 20px; left: 20px; background-color: rgba(30, 41, 59, 0.8); color: #cbd5e1; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; border: 1px solid #334155;">
-                        REC 🔴 - Tracking Activo
-                    </div>
-
-                    <div style="width: 380px; height: 380px; background-color: rgba(239, 68, 68, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 1px dashed rgba(239, 68, 68, 0.3);">
-                        <div style="width: 260px; height: 260px; background-color: rgba(245, 158, 11, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(245, 158, 11, 0.4);">
-                            <div style="width: 140px; height: 140px; background-color: rgba(16, 185, 129, 0.2); border-radius: 50%; border: 2px solid rgba(16, 185, 129, 0.5);"></div>
-                        </div>
-                    </div>
-
-                @if (mouseX == 0 && mouseY == 0)
+                @if (trackingPausado)
                 {
-                            <div style="position: absolute; bottom: 40px; background-color: rgba(30, 41, 59, 0.9); color: white; padding: 15px 25px; border-radius: 12px; text-align: center; pointer-events: none; border: 1px solid #475569;">
-                                <RadzenText Text="Mueva el mouse para navegar" TextStyle="TextStyle.Body2" Style="color: #38bdf8; margin: 0;" />
-                                <RadzenText Text="Haga clic para completar el paso actual" TextStyle="TextStyle.Caption" Style="color: #94a3b8; margin: 0;" />
+                            <div style="position: absolute; top: 20px; left: 20px; background-color: rgba(245, 158, 11, 0.8); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; border: 1px solid #b45309; z-index: 10;">
+                                ⏸️ - Tracking Pausado (Click Derecho para reanudar)
+                            </div>
+                }
+                else
+                {
+                            <div style="position: absolute; top: 20px; left: 20px; background-color: rgba(30, 41, 59, 0.8); color: #cbd5e1; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; border: 1px solid #334155; z-index: 10;">
+                                REC 🔴 - Tracking Activo (Click Derecho para pausar)
                             </div>
                 }
 
-                    <div style="position: absolute; left: @(mouseX - 6)px; top: @(mouseY - 6)px; width: 12px; height: 12px; background-color: #38bdf8; border-radius: 50%; border: 2px solid white; pointer-events: none; box-shadow: 0 0 15px #38bdf8;"></div>
+                        <div style="width: 380px; height: 380px; background-color: rgba(239, 68, 68, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; border: 1px dashed rgba(239, 68, 68, 0.3);">
+                            <div style="width: 260px; height: 260px; background-color: rgba(245, 158, 11, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(245, 158, 11, 0.4);">
+                                <div style="width: 140px; height: 140px; background-color: rgba(16, 185, 129, 0.2); border-radius: 50%; border: 2px solid rgba(16, 185, 129, 0.5);"></div>
+                            </div>
+                        </div>
+
+                @if (mouseX == 0 && mouseY == 0)
+                {
+                                    <div style="position: absolute; bottom: 40px; background-color: rgba(30, 41, 59, 0.9); color: white; padding: 15px 25px; border-radius: 12px; text-align: center; pointer-events: none; border: 1px solid #475569;">
+                                        <RadzenText Text="Mueva el mouse para navegar" TextStyle="TextStyle.Body2" Style="color: #38bdf8; margin: 0;" />
+                                        <RadzenText Text="Haga clic para completar el paso actual" TextStyle="TextStyle.Caption" Style="color: #94a3b8; margin: 0;" />
+                                    </div>
+                }
+
+                        <div style="position: absolute; left: @(mouseX - 6)px; top: @(mouseY - 6)px; width: 12px; height: 12px; background-color: #38bdf8; border-radius: 50%; border: 2px solid white; pointer-events: none; box-shadow: 0 0 15px #38bdf8;"></div>
             }
         </div>
     </RadzenColumn>
@@ -97,21 +108,21 @@
                     int index = i + 1;
                     if (index < pasoActual)
                     {
-                                <div style="background-color: #dcfce7; color: #166534; padding: 10px 15px; border-radius: 8px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px;">
-                                    <RadzenIcon Icon="check_circle" Style="font-size: 1.2rem;" /> @pasos[i]
-                                </div>
+                                        <div style="background-color: #dcfce7; color: #166534; padding: 10px 15px; border-radius: 8px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px;">
+                                            <RadzenIcon Icon="check_circle" Style="font-size: 1.2rem;" /> @pasos[i]
+                                        </div>
                     }
                     else if (index == pasoActual && simulacionActiva)
                     {
-                                <div style="background-color: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; padding: 10px 15px; border-radius: 8px; font-size: 0.9rem; font-weight: bold; display: flex; align-items: center; gap: 10px; box-shadow: 0 0 8px rgba(59,130,246,0.3);">
-                                    <RadzenIcon Icon="arrow_forward_ios" Style="font-size: 1rem; color: #3b82f6;" /> @pasos[i]
-                                </div>
+                                        <div style="background-color: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; padding: 10px 15px; border-radius: 8px; font-size: 0.9rem; font-weight: bold; display: flex; align-items: center; gap: 10px; box-shadow: 0 0 8px rgba(59,130,246,0.3);">
+                                            <RadzenIcon Icon="arrow_forward_ios" Style="font-size: 1rem; color: #3b82f6;" /> @pasos[i]
+                                        </div>
                     }
                     else
                     {
-                                <div style="background-color: #f8fafc; color: #64748b; border: 1px solid #e2e8f0; padding: 10px 15px; border-radius: 8px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px;">
-                                    <span style="font-weight: bold; width: 20px; text-align: center;">@index</span> @pasos[i]
-                                </div>
+                                        <div style="background-color: #f8fafc; color: #64748b; border: 1px solid #e2e8f0; padding: 10px 15px; border-radius: 8px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px;">
+                                            <span style="font-weight: bold; width: 20px; text-align: center;">@index</span> @pasos[i]
+                                        </div>
                     }
                 }
             </RadzenStack>
@@ -122,6 +133,7 @@
 @code {
     // 1. VARIABLES DE ESTADO Y UI
     bool simulacionActiva = false;
+    bool trackingPausado = false;
     int pasoActual = 1;
     int herramienta = 4; // Por defecto empezamos con Porta-agujas
 
@@ -179,9 +191,17 @@
         InvokeAsync(StateHasChanged);
     }
 
-    void MoverCursor(MouseEventArgs e)
+    void AlternarPausa()
     {
         if (simulacionActiva)
+        {
+            trackingPausado = !trackingPausado;
+        }
+    }
+
+    void MoverCursor(MouseEventArgs e)
+    {
+        if (simulacionActiva && !trackingPausado)
         {
             mouseX = e.OffsetX;
             mouseY = e.OffsetY;
@@ -222,7 +242,7 @@
 
     async Task AvanzarPaso()
     {
-        if (!simulacionActiva) return;
+        if (!simulacionActiva || trackingPausado) return;
 
         if (pasoActual < 6)
         {

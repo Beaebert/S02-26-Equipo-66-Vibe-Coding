@@ -21,7 +21,7 @@ public class Robot
     public int FailedClicks { get; private set; }
     public int TotalDurationSeconds { get; private set; }
 
-    // Safety Zone mapped to Blazor UI (Center at X:25, Y:25)
+    // Safety Zone mapped to Blazor UI (Center at X:40, Y:25)
     // Safe radius = 7, Warning radius = 13
 
     // EF Core requires a parameterless constructor
@@ -91,7 +91,9 @@ public class Robot
 
     private SafetyStatus CalculateSafetyZone(Coordinate c)
     {
-        double dx = c.X - 25.0;
+        // Safe Zone mapped to Blazor UI (Center at X:40, Y:25)
+        // because the UI box is 800x500 px. Mouse coordinates are divided by 10.
+        double dx = c.X - 40.0;
         double dy = c.Y - 25.0;
         double distance = Math.Sqrt(dx * dx + dy * dy);
 
