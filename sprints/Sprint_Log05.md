@@ -18,10 +18,20 @@ Finalizar los detalles del proyecto (código y presentación visual), ensayar la
     * **Investigación de Hosting:** Beatriz se encuentra investigando qué servicio de plataforma (PaaS/IaaS) puede ser más beneficioso para el proyecto (evaluando opciones como **Vercel**, **Azure Web Apps**, **Render**, entre otras menos conocidas), buscando detalles técnicos sobre su compatibilidad nativa para hostear **Blazor WebAssembly** y la API en **C# .NET**.
     * Organización general y reparto de temas a exponer para la reunión del próximo Viernes 06.
 
-### Martes 03/03 al Jueves 05/03 - Ajustes Finales y Ensayo
+### Martes 03/03 - Ajustes Finales
 * **Actividad:**
     * **Desarrollo (Beatriz Ebert):** Finalización de la integración de la API C# con el frontend Blazor y preparación de una versión estable para mostrar.
     * **Diseño UX/UI (Lara Almirón y Cristian Dal Piva):** Acabados finales en la interfaz gráfica y revisión de la consistencia visual en las Google Slides.
+* **Resultados Esperados:**
+    * Código cerrado y funcional para el MVP.
+    * Presentación en Google Slides terminada y lista para exponer.
+
+### Miércoles 04/03 - QA y Resolución de Bugs Matemáticos
+* **Actividad:**
+    * **Testing (Beatriz Ebert):** Se realizaron pruebas exhaustivas (QA) de la experiencia de usuario dentro de la simulación.
+    * **Resolución de Errores:** Se identificó y resolvió un "falso positivo" donde la asimetría topográfica entre el centro visual de Blazor (800x500px) y la fórmula del backend C# provocaba bajas en el puntaje de "Precisión Global" catalogando equivocadamente los movimientos perfectos como "Peligro Clínico".
+    * Se incluyó una funcionalidad de "Pausa de Rastreo" mediante el *click derecho* para permitir al usuario cambiar herramientas sin penalización al atravesar el lienzo.
+    * Se respaldaron y consolidaron todos los arreglos actualizando exitosamente la rama `main` del repositorio oficial en GitHub.
     * **Equipo completo:** Ensayo general de la presentación en video, asegurando que los tiempos coincidan con los requerimientos de la exposición.
 * **Resultados Esperados:**
     * Código cerrado y funcional para el MVP.
