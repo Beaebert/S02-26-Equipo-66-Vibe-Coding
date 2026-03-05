@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "0UdQOb8t",
+  "version": "ogMJPUyX",
   "assets": [
     {
       "hash": "sha256-kJXKqRCleT/Jk1wJUhUu24r2LAA7IWVYmdoENizE38M=",
@@ -150,12 +150,12 @@ self.assetsManifest = {
       "url": "_content/Radzen.Blazor/fonts/SourceSans3VF-Upright.ttf.woff2"
     },
     {
-      "hash": "sha256-CTQkKTC2uhfbgTiAQEiMdB0Vj4mvIUjS/9CB+V0OLvk=",
-      "url": "_framework/JustinaSimulation.Client.39jujrdgwq.wasm"
+      "hash": "sha256-cT9aGnf5D1rVaWQuBpmilW/6qzQMuwiCf96+wufXNE4=",
+      "url": "_framework/JustinaSimulation.Client.7287oxuq8r.wasm"
     },
     {
-      "hash": "sha256-5XyT9IFfuZukW4TxNtOg5t0hOyZRVNVqn86slMc0pds=",
-      "url": "_framework/JustinaSimulation.Client.z2f3836z4r.pdb"
+      "hash": "sha256-z0t/z/RyvrZPfmQjxKv8uEEOiqXGsdedykuJe7kNn8k=",
+      "url": "_framework/JustinaSimulation.Client.fcpa91q7je.pdb"
     },
     {
       "hash": "sha256-1QB1pgBhRHTczFyqPBgNNAsGC03NKbdAKr0dXoqlkK0=",
@@ -962,7 +962,7 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-IYXyt/6XSNbFuXt2HYns6bT+vXd0xfHGdbCMuyeIpm4=",
+      "hash": "sha256-pdYhPwxRV6AfGuSyqy25uxJR7Von58jc59H+iWu5Gs8=",
       "url": "_framework/dotnet.js"
     },
     {
@@ -1012,6 +1012,10 @@ self.assetsManifest = {
     {
       "hash": "sha256-yW+lUbNtQbR8Ffywuf8fD9zOgGJL+xo9XKqqCz8vc7k=",
       "url": "appsettings.json"
+    },
+    {
+      "hash": "sha256-qU6W8G0LFTn9R9gy0YwfVhiEt+jFn2vNgLbP4Agqo8w=",
+      "url": "web.config"
     }
   ]
 };

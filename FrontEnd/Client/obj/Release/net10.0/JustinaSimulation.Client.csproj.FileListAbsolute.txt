@@ -210,8 +210,6 @@ C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\_framework\icudt_CJK.tjcz0u77k5.dat
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\_framework\icudt_EFIGS.tptq2av103.dat
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\_framework\icudt_no_CJK.lfu7j35m59.dat
-C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\_framework\JustinaSimulation.Client.39jujrdgwq.wasm
-C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\_framework\JustinaSimulation.Client.z2f3836z4r.pdb
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\_framework\dotnet.js
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\Server\wwwroot\service-worker.js
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\service-worker-assets.js
@@ -426,8 +424,6 @@ C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\_framework\icudt_CJK.tjcz0u77k5.dat.gz
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\_framework\icudt_EFIGS.tptq2av103.dat.gz
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\_framework\icudt_no_CJK.lfu7j35m59.dat.gz
-C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\_framework\JustinaSimulation.Client.39jujrdgwq.wasm.gz
-C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\_framework\JustinaSimulation.Client.z2f3836z4r.pdb.gz
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\_framework\dotnet.js.gz
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\Server\wwwroot\service-worker.js.gz
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\service-worker-assets.js.gz
@@ -1081,11 +1077,6 @@ C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\compressed\n0n61h32my-{0}-tjcz0u77k5-tjcz0u77k5.gz
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\compressed\st8cmhyc8s-{0}-tptq2av103-tptq2av103.gz
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\compressed\eyi80qox4u-{0}-lfu7j35m59-lfu7j35m59.gz
-C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\compressed\d8jun4t48l-{0}-39jujrdgwq-39jujrdgwq.gz
-C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\compressed\fkqoehh45g-{0}-z2f3836z4r-z2f3836z4r.gz
-C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\compressed\r8zryt10qw-{0}-jv3xpskosr-jv3xpskosr.gz
-C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\compressed\85ittmliqs-{0}-m8j3i1g8og-m8j3i1g8og.gz
-C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\compressed\8qx233nf56-{0}-5dznln8rp8-5dznln8rp8.gz
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\staticwebassets.build.json
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\staticwebassets.build.json.cache
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\staticwebassets.development.json
@@ -1096,3 +1087,12 @@ C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\refint\JustinaSimulation.Client.dll
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\JustinaSimulation.Client.pdb
 C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\ref\JustinaSimulation.Client.dll
+C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\_framework\JustinaSimulation.Client.7287oxuq8r.wasm
+C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\_framework\JustinaSimulation.Client.fcpa91q7je.pdb
+C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\_framework\JustinaSimulation.Client.7287oxuq8r.wasm.gz
+C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\bin\Release\net10.0\wwwroot\_framework\JustinaSimulation.Client.fcpa91q7je.pdb.gz
+C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\compressed\d8jun4t48l-{0}-7287oxuq8r-7287oxuq8r.gz
+C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\compressed\fkqoehh45g-{0}-fcpa91q7je-fcpa91q7je.gz
+C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\compressed\r8zryt10qw-{0}-lwdxed3j56-lwdxed3j56.gz
+C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\compressed\85ittmliqs-{0}-mlxau5b9jo-mlxau5b9jo.gz
+C:\Users\ebert\Documents\Proyecto Justina Simulador\FrontEnd\Client\obj\Release\net10.0\compressed\8qx233nf56-{0}-arx2skalsb-arx2skalsb.gz
