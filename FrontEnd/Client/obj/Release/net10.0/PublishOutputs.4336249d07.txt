@@ -1,0 +1,3 @@
+C:\Users\ebert\Documents\Proyecto Justina Simulador\deploy_investigation\JustinaSimulation.Client.runtimeconfig.json
+C:\Users\ebert\Documents\Proyecto Justina Simulador\deploy_investigation\dotnet.js
+C:\Users\ebert\Documents\Proyecto Justina Simulador\deploy_investigation\web.config

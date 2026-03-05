@@ -26,14 +26,14 @@ jobs:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
     - name: Build with dotnet
-      run: dotnet build FrontEnd/Client/JustinaSimulation.Client.csproj --configuration Release
+      run: dotnet build FrontEnd/Server/JustinaSimulation.Server.csproj --configuration Release
 
     - name: Publish with dotnet
-      run: dotnet publish FrontEnd/Client/JustinaSimulation.Client.csproj -c Release -o publish_output
+      run: dotnet publish FrontEnd/Server/JustinaSimulation.Server.csproj -c Release -o publish_output
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v3
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.AZURE_BLAZOR_PUBLISH_PROFILE }}
-        package: publish_output/wwwroot
+        package: publish_output
