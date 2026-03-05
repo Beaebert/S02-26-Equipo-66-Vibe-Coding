@@ -13,7 +13,9 @@ builder.Services.AddRadzenCookieThemeService(options =>
     options.Name = "JustinaSimulationTheme";
     options.Duration = TimeSpan.FromDays(365);
 });
-builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+var apiUrl = builder.Configuration["ApiBaseUrl"] ?? builder.HostEnvironment.BaseAddress;
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(apiUrl) });
 
 var host = builder.Build();
 await host.RunAsync();

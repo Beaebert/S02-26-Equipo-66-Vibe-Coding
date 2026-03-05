@@ -135,16 +135,16 @@
     {
         try
         {
-            Result = await Http.GetFromJsonAsync<SimulationResult>("https://localhost:7231/api/pointer/results");
+            Result = await Http.GetFromJsonAsync<SimulationResult>("api/pointer/results");
 
             // The API records a hit every 100ms. High counts are expected for hovering.
             // We cap the maximum penalty to avoid instant 0% scores on minor infractions.
             int colisionesVisuales = Result.WarningsCount + Result.DangersCount;
             int penalizacionHover = Math.Min(colisionesVisuales / 5, 40); // 1 point lost every 0.5s of danger, max 40% loss
             int penalizacionManejo = Math.Min(Result.FailedClicks * 10, 60); // 10% lost per bad click, max 60% loss
-            
+
             PrecisionGlobal = 100 - penalizacionHover - penalizacionManejo;
-            
+
             if (PrecisionGlobal < 0) PrecisionGlobal = 0;
 
             if (PrecisionGlobal >= 90)
