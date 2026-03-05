@@ -16,8 +16,9 @@ builder.Services.AddScoped<MovePointerHandler>();
 builder.Services.AddScoped<JustinaSimulator.Application.UseCases.Click.ClickHandler>();
 
 // Infrastructure Services
+var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "JustinaSimulator.db");
 builder.Services.AddDbContext<JustinaDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=JustinaSimulator.db",
+    options.UseSqlite($"Data Source={dbPath}",
     b => b.MigrationsAssembly("JustinaSimulator.API")));
 
 builder.Services.AddScoped<ISimulationStateRepository, SqliteSimulationRepository>();
@@ -35,6 +36,13 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+// Migrate DB on startup (Essential for Azure App Service)
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<JustinaDbContext>();
+    db.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
