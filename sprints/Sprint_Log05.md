@@ -26,13 +26,14 @@ Finalizar los detalles del proyecto (código y presentación visual), ensayar la
     * Código cerrado y funcional para el MVP.
     * Presentación en Google Slides terminada y lista para exponer.
 
-### Miércoles 04/03 - QA y Resolución de Bugs Matemáticos
+### Miércoles 04/03 - QA, Resolución de Bugs Matemáticos y Deployment a Azure
 * **Actividad:**
     * **Testing (Beatriz Ebert):** Se realizaron pruebas exhaustivas (QA) de la experiencia de usuario dentro de la simulación.
     * **Resolución de Errores:** Se identificó y resolvió un "falso positivo" donde la asimetría topográfica entre el centro visual de Blazor (800x500px) y la fórmula del backend C# provocaba bajas en el puntaje de "Precisión Global" catalogando equivocadamente los movimientos perfectos como "Peligro Clínico".
     * Se incluyó una funcionalidad de "Pausa de Rastreo" mediante el *click derecho* para permitir al usuario cambiar herramientas sin penalización al atravesar el lienzo.
     * Se respaldaron y consolidaron todos los arreglos actualizando exitosamente la rama `main` del repositorio oficial en GitHub.
-    * **Equipo completo:** Ensayo general de la presentación en video, asegurando que los tiempos coincidan con los requerimientos de la exposición.
+    * **Deployment en la Nube:** Tras investigar las opciones técnicas, se logró automatizar el despliegue hacia **Microsoft Azure (App Services)** mediante pipelines CI/CD configurados en **GitHub Actions**. El entorno quedó dividido en dos aplicaciones (Frontend Blazor y Backend API), logrando que ambas instancias estén "En verde" y conectadas exitosamente en la nube.
+    * **Equipo completo:** Ensayo general de la presentación en video (ahora sobre la versión cloud en vivo), asegurando que los tiempos coincidan con los requerimientos de la exposición.
 * **Resultados Esperados:**
     * Código cerrado y funcional para el MVP.
     * Presentación en Google Slides terminada y lista para exponer.
