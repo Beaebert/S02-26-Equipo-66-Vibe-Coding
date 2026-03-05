@@ -5,7 +5,7 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
   "mainAssemblyName": "JustinaSimulation.Client",
   "applicationEnvironment": "Development",
   "resources": {
-    "hash": "sha256-1/NgX4uNnR9bQUakbEhUSQIzRu8ZBGOPpuRmuww0Zy8=",
+    "hash": "sha256-v8WQFtIl6W73Lv/GyNhSoIcMmJckgIPwF24LregSLzQ=",
     "jsModuleNative": [
       {
         "name": "dotnet.native.69poregybn.js"
@@ -1260,16 +1260,16 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
       },
       {
         "virtualPath": "JustinaSimulation.Client.wasm",
-        "name": "JustinaSimulation.Client.7287oxuq8r.wasm",
-        "integrity": "sha256-cT9aGnf5D1rVaWQuBpmilW/6qzQMuwiCf96+wufXNE4=",
+        "name": "JustinaSimulation.Client.brnibihqti.wasm",
+        "integrity": "sha256-ObSBQI2XLbG3KeTfArNoW6n4cjyos0GsI6iMQk2WfLU=",
         "cache": "force-cache"
       }
     ],
     "pdb": [
       {
         "virtualPath": "JustinaSimulation.Client.pdb",
-        "name": "JustinaSimulation.Client.fcpa91q7je.pdb",
-        "integrity": "sha256-z0t/z/RyvrZPfmQjxKv8uEEOiqXGsdedykuJe7kNn8k=",
+        "name": "JustinaSimulation.Client.kvxfipbc6n.pdb",
+        "integrity": "sha256-wKDKxLwHVXaf6i2JCHZPA9Cq5fqTVbVGFa5dc2W5HCg=",
         "cache": "force-cache"
       }
     ]
