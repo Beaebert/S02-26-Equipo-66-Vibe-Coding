@@ -37,6 +37,15 @@ Finalizar los detalles del proyecto (código y presentación visual), ensayar la
 * **Resultados Esperados:**
     * Código cerrado y funcional para el MVP.
     * Presentación en Google Slides terminada y lista para exponer.
+### Jueves 05/03 - QA en Producción y Resolución de Bugs Críticos
+* **Actividad:**
+    * **Testing en Vivo (Beatriz Ebert):** Se realizaron pruebas de la aplicación directamente sobre el entorno de producción en Microsoft Azure.
+    * **Resolución de Bug "Falso 100%":** Se detectó que el sistema siempre calculaba un 100% de precisión sin importar los errores cometidos. La investigación arrojó dos causas raíz:
+        1. **Bloqueo CORS en Azure:** La configuración de seguridad en el backend `justina-api` solo permitía peticiones transversales (CORS) en el entorno local (Development). Se reescribió la arquitectura del `Program.cs` para habilitar el tráfico desde el frontend Blazor App Service hacia la API.
+        2. **Ausencia de Esquema de Base de Datos:** Aunque se había configurado `db.Database.Migrate()`, los planos de Entity Framework (Migrations) nunca se habían generado. Azure intentaba escribir las colisiones en una tabla `Robots` inexistente (generando un Error 500 silencioso oculto por el UI). Se instaló la herramienta CLI de EF Core y se generó la migración `InitialCreate`.
+    * **Despliegue Correctivo:** Se actualizaron e integraron exitosamente los parches técnicos. La aplicación en la nube fue validada 100% funcional, ejecutando penalizaciones precisas.
+* **Resultados Esperados:**
+    * Entorno Productivo QA Aprobado. El MVP es completamente capaz de detectar, transmitir y almacenar métricas de colisión a través de la nube.
 
 ### Viernes 06/03 - Exposición Final
 * **Actividad Clave:** 
