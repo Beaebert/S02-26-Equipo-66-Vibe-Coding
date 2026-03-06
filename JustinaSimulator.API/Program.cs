@@ -45,9 +45,10 @@ using (var scope = app.Services.CreateScope())
 }
 
 // Configure the HTTP request pipeline.
+app.UseCors("AllowAll");
+
 if (app.Environment.IsDevelopment())
 {
-    app.UseCors("AllowAll");
     // Standard Swagger for reliability
     app.UseSwagger();
     app.UseSwaggerUI();
