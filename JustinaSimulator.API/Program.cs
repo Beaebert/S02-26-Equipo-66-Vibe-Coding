@@ -37,6 +37,8 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+app.UseDeveloperExceptionPage();
+
 // Migrate DB on startup (Essential for Azure App Service)
 using (var scope = app.Services.CreateScope())
 {
