@@ -6,6 +6,13 @@ Simulación Laboral de No Country - Febrero 2026: Plataforma de simulación y en
 ### 🎯 Visión del Producto
 Desarrollar una plataforma digital de simulación que permita a los cirujanos ensayar trayectorias de las intervenciones renales que realizarán posteriormente con un robot quirúrgico.
 
+- **Video de Presentación:**
+https://youtu.be/E4ovj5YQ8K8
+- **Repositorio del Desarrollo del Proyecto con su documentación en detalle:**
+https://github.com/Beaebert/S02-26-Equipo-66-Vibe-Coding
+- **Aplicación desplegada en el ecosistema de Azure:**
+https://justina-blazor.azurewebsites.net/
+
 **Objetivos de esta plataforma:**
 - Que el Operador Humano pueda simular el control del brazo robótico (efector final/pinza) mediante periféricos estándar (mouse/puntero).
 - Que el Operador Humano pueda interactuar con una interfaz de usuario (UX) realista, familiarizándose con el entorno de una consola quirúrgica en un ambiente seguro.
